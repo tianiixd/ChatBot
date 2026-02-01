@@ -1,14 +1,11 @@
 import { useEffect, useRef } from "react";
 import ChatMessage from "./ChatMessage";
 import botImg from "../assets/robot.png";
+import useAutoScroll from "../hooks/useAutoScroll";
 
 export default function ChatMessages(props) {
   const { chatMessages, isLoading } = props;
-  const bottomRef = useRef(null);
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [chatMessages, isLoading]);
+  const scrollRef = useAutoScroll([chatMessages, isLoading]);
 
   return (
     <>
@@ -42,7 +39,7 @@ export default function ChatMessages(props) {
         </div>
       )}
 
-      <div ref={bottomRef} />
+      <div ref={scrollRef} />
     </>
   );
 }

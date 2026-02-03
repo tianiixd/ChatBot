@@ -11,9 +11,10 @@ export default function ChatMessages(props) {
       {chatMessages.map((chatMessage) => {
         return (
           <ChatMessage
+            key={chatMessage.id}
             message={chatMessage.message}
             isBot={chatMessage.isBot}
-            key={chatMessage.id}
+            time={chatMessage.time}
           />
         );
       })}

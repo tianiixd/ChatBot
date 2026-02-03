@@ -1,9 +1,8 @@
-import dayjs from "dayjs";
 import userImg from "../assets/user.png";
 import botImg from "../assets/robot.png";
 
 export default function ChatMessage(props) {
-  const { message, isBot } = props;
+  const { message, isBot, time } = props;
   return (
     <div
       className={`flex w-full items-end gap-3 ${isBot ? "justify-start" : "justify-end"}`}
@@ -25,7 +24,7 @@ export default function ChatMessage(props) {
         <p
           className={`text-[11px] mt-1 font-medium text-gray-400 ${isBot ? "text-left" : "text-right"}`}
         >
-          {dayjs().format("h:mma")}
+          {time}
         </p>
       </div>
 

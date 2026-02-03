@@ -7,7 +7,6 @@ export default function useAutoScroll(dependencies) {
     if (scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: "smooth" });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, dependencies);
   return scrollRef;
 }

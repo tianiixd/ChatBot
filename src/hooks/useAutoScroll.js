@@ -1,13 +1,11 @@
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function useAutoScroll(dependencies) {
   const scrollRef = useRef(null);
 
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollIntoView({
-        behavior: "smooth",
-      });
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, dependencies);
   return scrollRef;

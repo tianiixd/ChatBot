@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import ChatMessage from "./ChatMessage";
 import botImg from "../assets/robot.png";
 import useAutoScroll from "../hooks/useAutoScroll";

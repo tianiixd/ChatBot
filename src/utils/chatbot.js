@@ -22,7 +22,17 @@ export const Chatbot = {
     thank: "No problem! Let me know if you need help with anything else!",
   },
 
-  additionalResponses: {},
+  additionalResponses: {
+    Goodbye: "Goodbye. Have a great day!",
+    "Beautiful Roxane": "Ganda ni roxane super!",
+    "Say badwords": "Fuck you! Tang ina mo!",
+    "give me a unique id": () =>
+      `Sure! Here's a unique ID ${crypto.randomUUID()}`,
+    "Napakagkaganda ni roxane!": "Truee parang anghel ganda pa super",
+    "suntukan tayo": "Sige kahit sama mo pa si lx",
+    "bat kaya ang ganda ni roxane?":
+      "Ewan ko nga eh napaka unique, and one of a kind hayss napaka rare galing gumawa ng magulang nya",
+  },
 
   unsuccessfulResponse: `Sorry, I didn't quite understand that. Currently, I only know how to flip a coin, roll a dice, or get today's date. Let me know how I can help!`,
 

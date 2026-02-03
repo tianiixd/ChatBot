@@ -1,17 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ChatInput from "./components/ChatInput";
 import ChatMessages from "./components/ChatMessages";
+import dayjs from "dayjs";
 import { Chatbot } from "./utils/chatbot";
 
 export default function App() {
-  const [chatMessages, setChatMessages] = useState([]);
+  const [chatMessages, setChatMessages] = useState(
+    JSON.parse(localStorage.getItem("messages")) || [],
+  );
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("messages", JSON.stringify(chatMessages));
+  }, [chatMessages]);
 
   const chatInput = async (text) => {
     const userMessage = {
       id: crypto.randomUUID(),
       message: text,
       isBot: false,
+      time: dayjs().format("h:mma"),
     };
     setChatMessages((prev) => [...prev, userMessage]);
 
@@ -22,6 +30,7 @@ export default function App() {
       id: crypto.randomUUID(),
       message: replyText,
       isBot: true,
+      time: dayjs().format("h:mma"),
     };
     setChatMessages((prev) => [...prev, botMessage]);
     setIsLoading(false);
@@ -40,13 +49,18 @@ export default function App() {
             : "Project Context Active"}
         </p>
       </div>
-      <div className="flex w-full max-w-3xl flex-col gap-10 p-4 pb-10 animate-fade-in-appear">
+      <div className="flex w-full max-w-4xl flex-col gap-10 p-4 pb-10 animate-fade-in-appear">
         <ChatMessages chatMessages={chatMessages} isLoading={isLoading} />
       </div>
 
       <div className="fixed bottom-0 w-full bg-gray-800 p-4 border-t border-gray-700 flex justify-center z-50 animate-fade-in-appear">
-        <div className="w-full max-w-3xl">
-          <ChatInput chatInput={chatInput} isLoading={isLoading} />
+        <div className="w-full max-w-4xl">
+          <ChatInput
+            chatInput={chatInput}
+            isLoading={isLoading}
+            chatMessages={chatMessages}
+            setChatMessages={setChatMessages}
+          />
         </div>
       </div>
     </div>

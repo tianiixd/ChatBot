@@ -31,6 +31,6 @@ The chatbot currently supports the following commands:
 
 1. **Clone the repository**
    ```bash
-   git clone [https://github.com/yourusername/react-chatbot.git](https://github.com/yourusername/react-chatbot.git)
-   cd react-chatbot
+   git clone https://github.com/tianiixd/ChatBot.git
+   cd Chatbot
    ```

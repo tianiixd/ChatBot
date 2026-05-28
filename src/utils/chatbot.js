@@ -20,6 +20,7 @@ export const Chatbot = {
       return `Today is ${dateToday}`;
     },
     thank: "No problem! Let me know if you need help with anything else!",
+    "What can you do? What do you do?": `I can flip a coin, roll a dice, or tell you today's date. Just ask!`,
   },
 
   additionalResponses: {

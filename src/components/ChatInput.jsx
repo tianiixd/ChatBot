@@ -67,7 +67,7 @@ export default function ChatInput(props) {
             disabled={!hasMessages}
             className={`py-1 px-5 rounded-lg text-neutral-100 transition-all duration-300 ${
               hasMessages
-                ? "bg-red-600 hover:bg-red-700 cursor-pointer "
+                  ? "bg-red-600 hover:bg-red-700 cursor-pointer"
                 : "bg-gray-600 cursor-not-allowed "
             }`}
           >
